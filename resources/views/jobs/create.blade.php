@@ -7,8 +7,8 @@
         <x-forms.input label="location" name="location" placeholder="Milan, Italy" />
 
         <x-forms.select label="Schedule" name="schedule">
-            <option value="">Part Time</option>
-            <option value="">Full Time</option>
+            <option>Part Time</option>
+            <option>Full Time</option>
         </x-forms.select>
 
         <x-forms.input label="URL" name="url" placeholder="https://test.com" />
