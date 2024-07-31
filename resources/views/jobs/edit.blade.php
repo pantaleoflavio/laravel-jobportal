@@ -23,5 +23,7 @@
         <x-forms.input label="Tags (comma separated)" name="tags" value="{{ $tagsString }}" />
 
         <x-forms.button>Update</x-forms.button>
+        <x-forms.button>Delete</x-forms.button>
+        <x-anchor href="/jobs/{{$job['id']}}">Cancel</x-anchor>
     </form>
 </x-layout>
