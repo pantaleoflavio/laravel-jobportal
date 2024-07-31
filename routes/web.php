@@ -16,7 +16,8 @@ Route::get('/jobs/create', [JobController::class, 'create'])->middleware('auth')
 Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');
 
 Route::get('/jobs/{job}', [JobController::class, 'show']);
-//Route::get('/jobs/{job}', [JobController::class, 'edit']);
+Route::get('/jobs/{job}/edit', [JobController::class, 'edit']);
+Route::patch('/jobs/{job}', [JobController::class, 'update']);
 Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
 
 
