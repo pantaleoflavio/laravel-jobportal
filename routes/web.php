@@ -11,9 +11,13 @@ Route::get('/', [JobController::class, 'index']);
 Route::get('/search', SearchController::class);
 Route::get('/tags/{tag:name}', TagController::class);
 
-// Job Forms
+// Jobs
 Route::get('/jobs/create', [JobController::class, 'create'])->middleware('auth');
 Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');
+
+Route::get('/jobs/{job}', [JobController::class, 'show']);
+//Route::get('/jobs/{job}', [JobController::class, 'edit']);
+Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
 
 
 // Auth

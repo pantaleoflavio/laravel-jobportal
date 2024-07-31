@@ -62,12 +62,9 @@ class JobController extends Controller
         return redirect('/');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Job $job)
     {
-        //
+        return  view('jobs.show', ['job' => $job]);
     }
 
     /**
@@ -81,16 +78,16 @@ class JobController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateJobRequest $request, Job $job)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Job $job)
     {
-        //
+        // add an authorize
+        
+        $job->delete();
+        return redirect('/jobs');
     }
 }
