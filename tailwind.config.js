@@ -10,6 +10,8 @@ export default {
         "myBg": "#31354a",
         "jobCardBorder": "#7f7fdb",
         "deleteBtn": "#d93a18",
+        "editAnchor": "#515f9c",
+
 
       },
       fontFamily: {
