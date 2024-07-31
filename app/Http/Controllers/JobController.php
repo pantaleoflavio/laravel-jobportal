@@ -72,13 +72,41 @@ class JobController extends Controller
      */
     public function edit(Job $job)
     {
-        //
+        return  view('jobs.edit', ['job' => $job]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    public function update(Request $request, Job $job)
+    {
+        // Authorize the update operation $this->authorize('update', $job);
 
+        // Validate the request
+        $validated = $request->validate([
+            'title' => ['required'],
+            'salary' => ['required'],
+            'location' => ['required'],
+            'schedule' => ['required', Rule::in(['Part Time', 'Full Time'])],
+            'url' => ['required', 'active_url'],
+            'tags' => ['nullable'],
+        ]);
+
+        // Update the job attributes, excluding 'tags'
+        $job->update(Arr::except($validated, 'tags'));
+
+        // Handle tags separately if they are provided
+        if ($request->filled('tags')) {
+            $tagNames = explode(',', $request->input('tags'));
+            $tagIds = [];
+
+            foreach ($tagNames as $tagName) {
+                $tag = Tag::firstOrCreate(['name' => trim($tagName)]);
+                $tagIds[] = $tag->id;
+            }
+
+            $job->tags()->sync($tagIds);
+        }
+
+        return redirect('/jobs/' . $job->id);
+    }
 
     /**
      * Remove the specified resource from storage.
