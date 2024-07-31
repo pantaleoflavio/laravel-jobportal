@@ -6,9 +6,9 @@
     </div>
 
     <div class="flex-1 flex flex-col">
-        <a href="" class="self-start text-sm text-gray-400">{{ $job->employer->name }}</a>
+        <div class="self-start text-sm text-gray-400">{{ $job->employer->name }}</div>
         <h4 class="font-bold text-xl mt-3 group-hover:text-jobCardBorder transition-colors duration-700">
-            <a href="{{ $job->url }}" target="_blank">
+            <a href="/jobs/{{$job['id']}}" target="_blank">
                 {{ $job->title }}
             </a>
         </h4>
