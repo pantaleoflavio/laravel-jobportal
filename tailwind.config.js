@@ -9,6 +9,7 @@ export default {
       colors: {
         "myBg": "#31354a",
         "jobCardBorder": "#7f7fdb",
+        "deleteBtn": "#d93a18",
 
       },
       fontFamily: {
